@@ -4,10 +4,9 @@
 # of the current volume level.
 
 send_notification() {
-	volume=$(pamixer --get-volume)
+  volume=$(pamixer --get-volume)
 	dunstify -a "changevolume" -u low -r 9993 -h int:value:"$volume" -i "volume" "Volume" "Currently at ${volume}%" -t 2000
 }
-
 case $1 in
 up)
 	# Set the volume on (if it was muted)
