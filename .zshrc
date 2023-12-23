@@ -11,7 +11,7 @@ export HISTCONTROL=erasedups:ignoredups:ignorespace
 export EDITOR=nvim
 alias vim='nvim'
 alias cat='bat'
-
+alias pacman-mirrors='sudo reflector --sort rate --verbose -l 30 --save /etc/pacman.d/mirrorlist'
 # To have colors for ls and all grep commands such as grep, egrep and zgrep
 export CLICOLOR=1
 
