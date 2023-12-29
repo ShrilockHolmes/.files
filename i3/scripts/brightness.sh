@@ -14,11 +14,11 @@ send_notification() {
 case $1 in
 up)
 	# Set the volume on (if it was muted)
-  brightnessctl s 5%+
+  brightnessctl s 2%+
 	send_notification "$1"
 	;;
 down)
-  brightnessctl s 5%-
+  brightnessctl s 2%-
 	send_notification "$1"
 	;;
 esac
