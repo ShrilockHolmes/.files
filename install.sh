@@ -9,7 +9,7 @@ if [[ $i3 -eq 'y'||'yes' ]]; then
      yay -S betterlockscreen 
      else
       sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si
-     yay -S betterlockscreen 
+     yay -S betterlockscreen rofi-greenclip
     fi
 
   fi
