@@ -24,6 +24,7 @@ bindsym $mod+v exec rofi -modi "clipboard:greenclip print" -show clipboard -run-
 bindsym $mod+d exec rofi -show drun
 
 bindsym $mod+x exec alacritty
+
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -48,9 +49,9 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in verical orientation
-bindsym mod1+Shift+v split v
+bindsym mod1+j split v
 # split in horizontal orientation
-bindsym mod1+Shift+h split h
+bindsym mod1+l split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -86,17 +87,15 @@ bindsym XF86AudioPlay exec playerctl play-pause
 ############### my startup apps and sets ############
 
 # background manager variety
-exec feh --bg-scale --no-fehbg --randomize ~/Pictures/Bing/
+exec feh --bg-scale --no-fehbg --randomize ~/Pictures/favwallpaper/*
 
 # clipboard manager or greenclip
 exec --no-startup-id greenclip daemon
 
 # no screen tearing and animations
 exec picom
-
 # notifications dunst
 exec dunst
-
 # for setting my sets and Preferences
 exec --no-startup-id ~/.config/i3/scripts/scroll.sh
 
@@ -132,7 +131,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 bar {
-font pango:JetbrainsMono Nerd Font 9 
+font pango:JetbrainsMono Nerd Font 9
 status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks 
    }
 

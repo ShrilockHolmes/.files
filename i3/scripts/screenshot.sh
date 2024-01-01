@@ -1,9 +1,8 @@
 #!/bin/bash
-output="$HOME/Pictures/%Y-%m-%d-%T-screenshot.png"
-
-case "$1" in
-	"select") scrot "$output" --select --line mode=edge || exit ;;
-	"window") scrot "$output" --focused --border || exit ;;
+output="$HOME/Pictures/Screenshots/%Y-%m-%d-%T.png"
+chosen=$(printf "normal\nselection" | rofi -dmenu -i -theme-str '@import "power.rasi"')
+case "$chosen" in
+	"selection") scrot "$output" --select --line mode=edge || exit ;;
 	*) scrot "$output" || exit ;;
 esac
 notify-send "Screenshot taken."
