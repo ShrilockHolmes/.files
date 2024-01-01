@@ -10,7 +10,7 @@ void instessen(int which) {
       system("pacman -Sy --needed git base-devel && cd ~/.cache/ && "
              "git clone https://aur.archlinux.org/yay-bin.git && cd "
              "~/.cache/yay-bin && makepkg -si");
-      system("yay -S brave-bin variety eog geary neofetch htop");
+      system("yay -S brave-bin variety eog geary neofetch htop scrot");
     }
   }
   if (which == 2) {
