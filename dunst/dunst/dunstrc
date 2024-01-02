@@ -1,7 +1,7 @@
 [global]
 
     offset = 10x30
-origin = bottom-right
+    origin = bottom-right
     padding = 8
     width = 400
 
