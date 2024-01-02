@@ -26,6 +26,8 @@ tap_to_click_id=`xinput list-props $id | \
 # Set the property to true
 xinput --set-prop $id $tap_to_click_id 1
 
+xset s on
+xset s 600
 
 # my input delay and others
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 5
