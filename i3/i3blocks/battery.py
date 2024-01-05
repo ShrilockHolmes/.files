@@ -6,7 +6,6 @@
 # A battery indicator blocklet script for i3blocks
 
 from subprocess import check_output
-
 status = check_output(['acpi'], universal_newlines=True)
 
 if not status:
