@@ -30,7 +30,8 @@ separator_block_width=15
 markup=none
 
 [battery]
-command=~/.config/i3blocks/bat.sh
+command=./battery.py
+markup=pango
 interval=5
 # Volume indicator
 #

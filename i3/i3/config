@@ -1,7 +1,7 @@
 # polkit-gnome or the admin privilages asking thing
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # my system fonts
-font pango:RobotoMono 8
+font pango:RobotoMono 9
 
 # keybinds 
 bindsym $mod+e exec nemo
@@ -93,11 +93,11 @@ exec feh --bg-scale --no-fehbg --randomize ~/Pictures/favwallpaper/*
 exec --no-startup-id greenclip daemon
 
 # no screen tearing and animations
-exec picom
+exec --no-startup-id picom
 # notifications dunst
-exec dunst
+exec --no-startup-id dunst
 # for setting my sets and Preferences
-exec --no-startup-id ~/.config/i3/scripts/scroll.sh
+exec ~/.config/i3/scripts/scroll.sh
 
 # to lock screen before sleeping using better-lock-screen
 exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/scripts/lock.sh --nofork
