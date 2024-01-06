@@ -113,6 +113,7 @@ for_window [class="^.*"] border pixel 0
 # class                 border  backgr. text    indicator child_border
 for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
 
+for_window [class="Brave-browser"] move to workspace $ws1
 
 for_window [window_role="About"] floating enable
 for_window [window_role="Organizer"] floating enable
@@ -125,6 +126,7 @@ for_window [window_role="toolbox"] floating enable
 for_window [window_role="webconsole"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

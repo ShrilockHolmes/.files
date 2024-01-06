@@ -1,6 +1,4 @@
 #!/bin/bash
-# sets my brightness to 2% by default
-brightnessctl s 2%
 # colormanages my display
 /usr/bin/xcalib -d :0 ~/Documents/X540NA_8086_AE0D15DB.icm
 
