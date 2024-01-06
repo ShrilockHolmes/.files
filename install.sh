@@ -18,6 +18,7 @@ if [[ $i3 -eq 'y'||'yes' ]]; then
     stow -v -t $HOME/.config/ i3
     stow -v -t $HOME/.config/ dunst
     stow -v -t $HOME/.config/ alacritty
+    stow -v -t $HOME/.config/ rofi
     stow -v -t $HOME zsh
   fi
 fi
