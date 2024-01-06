@@ -30,15 +30,13 @@ separator_block_width=15
 markup=none
 
 [battery]
-command=./battery.py
-markup=pango
+command=./bat.sh
 interval=5
 # Volume indicator
 #
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
-
 
 # Network interface monitoring
 #
