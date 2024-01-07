@@ -4,10 +4,12 @@
 
 feh --no-fehbg -z --bg-scale ~/Pictures/favwallpaper/*
 
+killall greenclip
 greenclip daemon &
 
-~/.config/polybar/launch.sh &
+~/.config/polybar/launch.sh
 
+killall nm-applet
 nm-applet &
 
 killall sxhkd
@@ -17,6 +19,7 @@ killall dunst
 dunst &
 bash ~/.config/i3/scripts/scroll.sh &
 
+killall xss-lock
 xss-lock --transfer-sleep-lock -- ~/.config/i3/scripts/lock.sh --nofork &
 
 xsetroot -cursor_name left_ptr
