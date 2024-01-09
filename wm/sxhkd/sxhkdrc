@@ -1,15 +1,6 @@
 super + x
   alacritty
 
-alt + v
-    CM_LAUNCHER=rofi clipmenu \
-        -location 1 \
-        -m -3 \
-        -no-show-icons \
-        -theme-str '* \{ font: 10px; \}' \
-        -theme-str 'listview \{ spacing: 0; \}' \
-        -theme-str 'window \{ width: 20em; \}'
-
 super + d 
   rofi -show drun
 
@@ -98,7 +89,19 @@ super + r : {h,j,k,l}
     bspc node -z $(echo "left -$STEP 0,bottom 0 $STEP,top 0 -$STEP,right $STEP 0" | cut -d',' -f$SELECTION) || \
     bspc node -z $(echo "right -$STEP 0,top 0 $STEP,bottom 0 -$STEP,left $STEP 0" | cut -d',' -f$SELECTION)
 
+
+super + r : {Left,Down,Up,Right}
+    STEP=20; SELECTION={1,2,3,4}; \
+    bspc node -z $(echo "left +$STEP 0,bottom 0 +$STEP,top 0 +$STEP,right $STEP 0" | cut -d',' -f$SELECTION) || \
+    bspc node -z $(echo "right +$STEP 0,top 0 $STEP,bottom 0 +$STEP,left $STEP 0" | cut -d',' -f$SELECTION)
 #
 # # Move a floating window
 super + {Left,Right,Up,Down}
   xdo move {-x -20, -x +20, -y -20, -y +20}
+
+
+alt + shift + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+alt + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
