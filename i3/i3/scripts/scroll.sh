@@ -31,5 +31,4 @@ xset s 600
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 5
 gsettings set org.gnome.desktop.peripherals.keyboard delay 150
 
-powerprofilesctl set power-saver 
 exit 
