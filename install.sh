@@ -1,10 +1,8 @@
 #!/bin/bash
 #
-read -p "do you want to install i3wm:" i3
-
-if [[ $i3 -eq 'y'||'yes' ]]; then
-  if pacman -V >> /dev/null; then
-    sudo pacman -S rofi i3 i3blocks ttf-roboto ttf-roboto-mono-nerd ttf-jetbrains-mono-nerd picom dunst rofi-calc rofi-emoji xss-lock bat trash-cli z stow scrot alacritty power-profiles-daemon
+if pacman -V >> /dev/null; then
+    sudo pacman -S rofi ttf-roboto ttf-roboto-mono-nerd ttf-jetbrains-mono-nerd picom dunst rofi-calc rofi-emoji xss-lock bat trash-cli z stow scrot alacritty cpupower ttf-font-awesome bspwm sxhkd polybar zsh networkmanager gnome-keyring ly polkit-gnome feh variety eog qt5ct kcolorchooser neovim npm python-pynvim dolphin gedit breeze ripgrep fd lxappearance cups system-config-printer xorg-xsetroot intel-media-driver vulkan-intel vulkan-validation-layers network-manager-applet geary 
+    sudo systemctl enable ly
     if yay; then
      yay -S betterlockscreen rofi-greenclip
      else
@@ -14,12 +12,23 @@ if [[ $i3 -eq 'y'||'yes' ]]; then
   fi
   # dotfile copying
   #
-  if ls -a $(pwd) | grep i3;then
     stow -v -t $HOME/.config/ i3
     stow -v -t $HOME/.config/ dunst
     stow -v -t $HOME/.config/ alacritty
     stow -v -t $HOME/.config/ rofi
     stow -v -t $HOME/.config/ wm
     stow -v -t $HOME zsh
-  fi
-fi
+    sudo cp -r ./Nordic-darker /usr/share/themes/
+    if ls -a ~ | grep .icons; then
+      sudo cp -r ./Nordic-cursors ~/.icons/
+    else
+      mkdir ~/.icons/ 
+      sudo cp -r ./Nordic-cursors ~/.icons/
+    fi
+    if ls -a ~/Pictures/ | grep favwallpaper
+     cp ./bg-default.jpg ~/Pictures/favwallpaper
+     else
+      mkdir ~/Pictures/Screenshots
+      mkdir ~/Pictures/favwallpaper
+      cp ./bg-default.jpg ~/Pictures/favwallpaper
+    fi

@@ -92,10 +92,6 @@ exec feh --bg-scale --no-fehbg --randomize ~/Pictures/favwallpaper/
 # clipboard manager or greenclip
 exec --no-startup-id greenclip daemon
 
-# no screen tearing and animations
-exec --no-startup-id picom
-# notifications dunst
-exec --no-startup-id dunst
 # for setting my sets and Preferences
 exec ~/.config/i3/scripts/scroll.sh
 

@@ -57,7 +57,7 @@ XF86AudioPlay
   playerctl play-pause
 
 super + e 
-  nemo
+  dolphin
 
 
 # window manaager only!!
