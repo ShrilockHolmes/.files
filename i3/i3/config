@@ -1,5 +1,5 @@
 # polkit-gnome or the admin privilages asking thing
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 # my system fonts
 font pango:RobotoMono 9
 
@@ -87,7 +87,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 ############### my startup apps and sets ############
 
 # background manager variety
-exec feh --bg-scale --no-fehbg --randomize ~/Pictures/favwallpaper/*
+exec feh --bg-scale --no-fehbg --randomize ~/Pictures/favwallpaper/
 
 # clipboard manager or greenclip
 exec --no-startup-id greenclip daemon

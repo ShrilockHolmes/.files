@@ -1,26 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/polkit-kde-authentication-agent-1 &
 
-feh --no-fehbg -z --bg-scale ~/Pictures/favwallpaper/*
-
-killall greenclip
-greenclip daemon &
-
-~/.config/polybar/launch.sh
-
-killall nm-applet
-nm-applet &
+bash ~/.config/i3/scripts/scroll.sh &
 
 killall sxhkd
 sxhkd &
-picom &
-killall dunst
-dunst &
-bash ~/.config/i3/scripts/scroll.sh &
 
-killall xss-lock
-xss-lock --transfer-sleep-lock -- ~/.config/i3/scripts/lock.sh --nofork &
+feh --no-fehbg -z --bg-scale ~/Pictures/favwallpaper/*
 
 xsetroot -cursor_name left_ptr
 
@@ -37,3 +24,16 @@ bspc config split_ratio 0.50
 bspc config borderless_monocle true
 bspc config gapless_monocle true
 bspc rule -a Brave-browser desktop='^1' follow=on
+bspc rule -a zenity follow=on state=floating
+
+
+killall nm-applet
+nm-applet &
+
+~/.config/polybar/launch.sh
+
+killall xss-lock
+xss-lock --transfer-sleep-lock -- ~/.config/i3/scripts/lock.sh --nofork &
+
+killall greenclip
+greenclip daemon &
