@@ -96,7 +96,6 @@ exec --no-startup-id greenclip daemon
 exec --no-startup-id ~/.config/i3/scripts/scroll.sh
 
 exec picom
-exec dunst 
 # to lock screen before sleeping using better-lock-screen
 exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/scripts/lock.sh --nofork
 
