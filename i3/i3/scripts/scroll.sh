@@ -6,8 +6,8 @@
 xinput set-prop "ELAN1200:00 04F3:3067 Touchpad" 'libinput Scrolling Pixel Distance' '32'
 
 # flatpak should use my system cursor
-flatpak --user override --filesystem=/home/$USER/.icons/:ro
-flatpak --user override --filesystem=/home/$USER/.themes/:ro
+#flatpak --user override --filesystem=/home/$USER/.icons/:ro
+#flatpak --user override --filesystem=/home/$USER/.themes/:ro
 
 id=`xinput list | grep -i "Touchpad" | cut -d'=' -f2 | cut -d'[' -f1`
 natural_scrolling_id=`xinput list-props $id | \
@@ -31,7 +31,4 @@ xset s 600
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 5
 gsettings set org.gnome.desktop.peripherals.keyboard delay 150
 
-picom &
-killall dunst
-dunst &
 exit 

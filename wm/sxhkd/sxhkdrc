@@ -1,5 +1,5 @@
 super + x
-  alacritty
+  kitty
 
 super + d 
   rofi -show drun

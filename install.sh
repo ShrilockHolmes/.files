@@ -1,7 +1,8 @@
 #!/bin/bash
 #
+whereisthisfile=$(pwd)
 if pacman -V >> /dev/null; then
-    sudo pacman -S rofi ttf-roboto ttf-roboto-mono-nerd ttf-jetbrains-mono-nerd picom dunst rofi-calc rofi-emoji xss-lock bat trash-cli z stow scrot alacritty cpupower ttf-font-awesome bspwm sxhkd polybar zsh networkmanager gnome-keyring ly polkit-gnome feh variety eog qt5ct kcolorchooser neovim npm python-pynvim dolphin gedit breeze ripgrep fd lxappearance cups system-config-printer xorg-xsetroot intel-media-driver vulkan-intel vulkan-validation-layers network-manager-applet geary 
+    sudo pacman -S rofi ttf-roboto ttf-roboto-mono-nerd ttf-jetbrains-mono-nerd picom dunst rofi-calc rofi-emoji xss-lock bat trash-cli z stow scrot alacritty cpupower ttf-font-awesome i3-wm i3blocks zsh networkmanager gnome-keyring ly feh variety eog qt5ct neovim python-pynvim nemo gedit breeze ripgrep fd lxappearance xorg-xsetroot intel-media-driver vulkan-intel vulkan-validation-layers network-manager-applet 
     sudo systemctl enable ly
     if yay; then
      yay -S betterlockscreen rofi-greenclip
@@ -12,6 +13,8 @@ if pacman -V >> /dev/null; then
   fi
   # dotfile copying
   #
+  cd $whereisthisfile
+    curl -L git.io/antigen > antigen.zsh
     stow -v -t $HOME/.config/ i3
     stow -v -t $HOME/.config/ dunst
     stow -v -t $HOME/.config/ alacritty
@@ -25,9 +28,10 @@ if pacman -V >> /dev/null; then
       mkdir ~/.icons/ 
       sudo cp -r ./Nordic-cursors ~/.icons/
     fi
-    if ls -a ~/Pictures/ | grep favwallpaper
+    if ls -a ~/Pictures/ | grep favwallpaper; then
      cp ./bg-default.jpg ~/Pictures/favwallpaper
      else
+      mkdir ~/Pictures/
       mkdir ~/Pictures/Screenshots
       mkdir ~/Pictures/favwallpaper
       cp ./bg-default.jpg ~/Pictures/favwallpaper
