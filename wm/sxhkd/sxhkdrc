@@ -14,7 +14,7 @@ super + v
   rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 super + shift + c
-	 killall sxhkd && notify-send 'reloaded sxhkd' && sxhkd & 
+  pkill sxhkd && notify-send 'reloaded sxhkd' && sxhkd & 
 
 super + {_,shift + }q
 	bspc node -{c,k}

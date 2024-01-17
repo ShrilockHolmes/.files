@@ -2,7 +2,7 @@
 #
 whereisthisfile=$(pwd)
 if pacman -V >> /dev/null; then
-    sudo pacman -S rofi ttf-roboto ttf-roboto-mono-nerd ttf-jetbrains-mono-nerd picom dunst rofi-calc rofi-emoji xss-lock bat trash-cli z stow scrot kitty cpupower ttf-font-awesome bspwm sxhkd polybar zsh networkmanager gnome-keyring ly feh variety eog qt5ct neovim python-pynvim nemo gedit breeze ripgrep fd lxappearance xorg-xsetroot intel-media-driver vulkan-intel vulkan-validation-layers network-manager-applet 
+    sudo pacman -S rofi ttf-roboto ttf-roboto-mono-nerd ttf-jetbrains-mono-nerd picom dunst rofi-calc rofi-emoji xss-lock bat trash-cli z stow scrot kitty cpupower ttf-font-awesome i3-wm i3blocks zsh networkmanager gnome-keyring ly feh variety eog qt5ct neovim python-pynvim nemo gedit breeze ripgrep fd lxappearance xorg-xsetroot intel-media-driver vulkan-intel vulkan-validation-layers network-manager-applet 
     sudo systemctl enable ly
     if yay; then
      yay -S betterlockscreen rofi-greenclip
@@ -14,12 +14,12 @@ if pacman -V >> /dev/null; then
   # dotfile copying
   #
   cd $whereisthisfile
-    curl -L git.io/antigen > antigen.zsh
+    curl -L git.io/antigen > ~/antigen.zsh
     stow -v -t $HOME/.config/ i3
     stow -v -t $HOME/.config/ dunst
     stow -v -t $HOME/.config/ alacritty
     stow -v -t $HOME/.config/ rofi
-    stow -v -t $HOME/.config/ wm
+    #stow -v -t $HOME/.config/ wm
     stow -v -t $HOME zsh
     sudo cp -r ./Nordic-darker /usr/share/themes/
     if ls -a ~ | grep .icons; then
@@ -30,9 +30,16 @@ if pacman -V >> /dev/null; then
     fi
     if ls -a ~/Pictures/ | grep favwallpaper; then
      cp ./bg-default.jpg ~/Pictures/favwallpaper
+      betterlockscreen -u ~/Pictures/favwallpaper/bg-default.jpg
      else
-      mkdir ~/Pictures/
-      mkdir ~/Pictures/Screenshots
+       if ls -a ~ | grep Pictures;then
       mkdir ~/Pictures/favwallpaper
+       mkdir ~/Pictures/Screenshots
+      else
+      mkdir ~/Pictures/
+      mkdir ~/Pictures/favwallpaper
+       mkdir ~/Pictures/Screenshots
+       fi
       cp ./bg-default.jpg ~/Pictures/favwallpaper
+      betterlockscreen -u ~/Pictures/favwallpaper/bg-default.jpg
     fi

@@ -23,7 +23,7 @@ bindsym $mod+v exec rofi -modi "clipboard:greenclip print" -show clipboard -run-
 
 bindsym $mod+d exec rofi -show drun
 
-bindsym $mod+x exec alacritty
+bindsym $mod+x exec kitty
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
