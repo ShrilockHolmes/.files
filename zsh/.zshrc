@@ -8,6 +8,7 @@ fi
 export HISTCONTROL=erasedups:ignoredups:ignorespace
 
 # Set the default editor
+alias editthat='nvim $(fzf)'
 export EDITOR=nvim
 alias vim='nvim'
 alias cat='bat'
