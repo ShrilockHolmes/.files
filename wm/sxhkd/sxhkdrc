@@ -44,8 +44,10 @@ super + ctrl + c
 
 
 @Print
-  ~/.config/i3/scripts/screenshot.sh
+  ~/.config/i3/scripts/screenshot.sh 1
 
+shift + @Print
+  ~/.config/i3/scripts/screenshot.sh 2
 
 XF86AudioPrev
   playerctl previous
@@ -57,7 +59,7 @@ XF86AudioPlay
   playerctl play-pause
 
 super + e 
- nemo
+ dolphin && /usr/lib/polkit-kde-authentication-agent-1 &
 
 
 # window manaager only!!
