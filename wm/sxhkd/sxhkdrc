@@ -59,7 +59,8 @@ XF86AudioPlay
   playerctl play-pause
 
 super + e 
- dolphin && /usr/lib/polkit-kde-authentication-agent-1 &
+ /usr/lib/polkit-kde-authentication-agent-1 & \
+ dolphin
 
 
 # window manaager only!!
