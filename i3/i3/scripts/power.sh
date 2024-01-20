@@ -1,5 +1,10 @@
 #!/bin/bash
-pkill polkit-kde-authentication-agent-1
+#
+if [[ $1 -eq 1 ]]; then
+  /usr/lib/polkit-kde-authentication-agent-1 &
+  dolphin 
+  exit
+fi
 /usr/lib/polkit-kde-authentication-agent-1 &
 
 chosen=$(printf "  Shutdown\n  Restart\n  Log Out\n💤 Sleep\n  Lock" | rofi -dmenu -i -theme-str '@import "power.rasi"')

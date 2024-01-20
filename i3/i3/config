@@ -2,7 +2,7 @@
 font pango:RobotoMono 9
 
 # keybinds 
-bindsym $mod+e exec nemo
+bindsym $mod+e exec ~/.config/i3/scripts/power.sh 1
 
 bindsym $mod+period exec rofi -modi emoji -show emoji
 
@@ -92,7 +92,7 @@ exec greenclip daemon
 
 # for setting my sets and Preferences
 exec --no-startup-id ~/.config/i3/scripts/autostart.sh
-# to lock screen before sleeping using better-lock-screen
+# to lock screen before sleeping using better-lock-screen or just use systemd 
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/scripts/lock.sh --nofork
 
 # the wifi menu in the taskbar
