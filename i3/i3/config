@@ -21,7 +21,7 @@ bindsym $mod+v exec rofi -modi "clipboard:greenclip print" -show clipboard -run-
 
 bindsym $mod+d exec rofi -show drun
 
-bindsym $mod+x exec kitty
+bindsym $mod+x exec alacritty
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -107,6 +107,9 @@ for_window [class="^.*"] border pixel 0
 for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
 
 for_window [class="Brave-browser"] move to workspace $ws1
+for_window [class="Floorp"] move to workspace $ws1
+for_window [class="zenity"] state=floating
+for_window [class="Spotify"] move to workspace $ws3
 
 for_window [window_role="About"] floating enable
 for_window [window_role="Organizer"] floating enable
