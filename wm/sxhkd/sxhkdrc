@@ -23,31 +23,31 @@ super + shift + r
   bspc wm -r
 # media keys 
 XF86AudioRaiseVolume 
-  bash ~/.config/i3/scripts/audio.sh up
+  bash ~/.local/bin/audio.sh up
 XF86AudioLowerVolume 
-  bash ~/.config/i3/scripts/audio.sh down 
+  bash ~/.local/bin/audio.sh down
 XF86AudioMute
-  ~/.config/i3/scripts/audio.sh mute
+  ~/.local/bin/audio.sh mute
 XF86AudioMicMute 
   pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 XF86MonBrightnessDown 
-  bash ~/.config/i3/scripts/brightness.sh down
+  bash ~/.local/bin/brightness.sh down
 XF86MonBrightnessUp 
-  bash ~/.config/i3/scripts/brightness.sh up
+  bash ~/.local/bin/brightness.sh up
 
 super + shift + p
-  ~/.config/i3/scripts/power.sh
+  ~/.local/bin/power.sh
 
 super + ctrl + c 
    pkill greenclip && greenclip clear && greenclip daemon &
 
 
 @Print
-  ~/.config/i3/scripts/screenshot.sh 1
+  ~/.local/bin/screenshot.sh 1
 
 shift + @Print
-  ~/.config/i3/scripts/screenshot.sh 2
+  ~/.local/bin/screenshot.sh 2
 
 XF86AudioPrev
   playerctl previous
@@ -59,9 +59,7 @@ XF86AudioPlay
   playerctl play-pause
 
 super + e 
- /usr/lib/polkit-kde-authentication-agent-1 & \
- dolphin
-
+  ~/.local/bin/power.sh 1
 
 # window manaager only!!
 super + shift + space

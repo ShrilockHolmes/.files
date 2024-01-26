@@ -32,5 +32,4 @@ gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 5
 gsettings set org.gnome.desktop.peripherals.keyboard delay 150
 
 picom &
-
 exit 

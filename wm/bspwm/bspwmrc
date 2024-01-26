@@ -1,6 +1,7 @@
 #!/bin/sh
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-~/.config/i3/scripts/autostart.sh
+~/.local/bin/autostart.sh
 
 feh --no-fehbg -z --bg-scale ~/Pictures/favwallpaper/*
 
@@ -25,11 +26,17 @@ bspc rule -a Spotify desktop='^3' follow=on
 
 killall nm-applet
 nm-applet &
-killall greenclip
+killall greenclip 
 greenclip daemon &
 
 ~/.config/polybar/launch.sh
 
-killall sxhkd
+killall sxhkd 
 sxhkd &
 
+pkill gvfsd
+pkill udisks2 
+pkill gvfsd-fuse 
+pkill -f /usr/lib/at-spi-bus-launcher
+pkill -f /usr/lib/at-spi2-registryd
+pkill -f /usr/lib/dconf-service
