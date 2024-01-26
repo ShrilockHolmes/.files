@@ -16,12 +16,15 @@ if pacman -V >> /dev/null; then
   #
   cd $whereisthisfile
     curl -L git.io/antigen > ~/antigen.zsh
-    #stow -v -t $HOME/.config/ i3
+    mkdir ~/.local/bin
+    stow -v -t $HOME/.local/bin scripts
     stow -v -t $HOME/.config/ dunst
     stow -v -t $HOME/.config/ alacritty
     stow -v -t $HOME/.config/ rofi
     stow -v -t $HOME/.config/ wm
     stow -v -t $HOME zsh
+    sudo cp ./kdeglobals ~/.config/
+    sudo cp ./power.rules /etc/udev/rules.d/
     sudo cp -r ./Nordic-darker /usr/share/themes/
     if ls -a ~ | grep .icons; then
       sudo cp -r ./Nordic-cursors ~/.icons/
