@@ -25,6 +25,7 @@ if pacman -V >> /dev/null; then
     stow -v -t $HOME zsh
     sudo cp ./kdeglobals ~/.config/
     sudo cp ./power.rules /etc/udev/rules.d/
+    sudo cp ./battery.service /etc/systemd/system/
     sudo cp -r ./Nordic-darker /usr/share/themes/
     if ls -a ~ | grep .icons; then
       sudo cp -r ./Nordic-cursors ~/.icons/
