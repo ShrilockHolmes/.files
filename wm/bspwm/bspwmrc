@@ -25,7 +25,7 @@ bspc rule -a zenity follow=on state=floating
 bspc rule -a Spotify desktop='^3' follow=on
 
 killall nm-applet
-nm-applet &
+nm-applet --indicator &
 killall greenclip 
 greenclip daemon &
 

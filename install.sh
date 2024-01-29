@@ -2,8 +2,8 @@
 #
 whereisthisfile=$(pwd)
 if pacman -V >> /dev/null; then
-    sudo pacman -S rofi ttf-roboto ttf-roboto-mono-nerd ttf-jetbrains-mono-nerd picom dunst rofi-calc rofi-emoji trash-cli z stow scrot alacritty cpupower ttf-font-awesome bspwm sxhkd polybar zsh networkmanager gnome-keyring ly feh variety eog qt5ct neovim python-pynvim nemo gedit breeze ripgrep fd lxappearance xorg-xsetroot intel-media-driver vulkan-intel vulkan-validation-layers network-manager-applet 
-    sudo systemctl enable ly
+    sudo pacman -S rofi ttf-roboto ttf-roboto-mono-nerd ttf-jetbrains-mono-nerd picom dunst rofi-calc rofi-emoji trash-cli z stow scrot alacritty cpupower ttf-font-awesome bspwm sxhkd polybar zsh networkmanager gnome-keyring polkit-gnome ly feh variety eog qt5ct neovim python-pynvim nemo gedit kvantum ripgrep fd lxappearance xorg-xsetroot intel-media-driver vulkan-intel vulkan-validation-layers network-manager-applet 
+  sudo systemctl enable ly
     if yay; then
      yay -S betterlockscreen rofi-greenclip
      else
@@ -19,7 +19,7 @@ if pacman -V >> /dev/null; then
     mkdir ~/.local/bin
     stow -v -t $HOME/.local/bin scripts
     stow -v -t $HOME/.config/ dunst
-    stow -v -t $HOME/.config/ alacritty
+    stow -v -t $HOME/.config/ terminal
     stow -v -t $HOME/.config/ rofi
     stow -v -t $HOME/.config/ wm
     stow -v -t $HOME zsh

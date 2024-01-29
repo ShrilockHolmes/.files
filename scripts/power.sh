@@ -6,7 +6,9 @@ if [[ $1 -eq 1 ]]; then
 fi
 
 chosen=$(printf "  Shutdown\n  Restart\n  Log Out\n💤 Sleep\n  Lock" | rofi -dmenu -i -theme-str '@import "power.rasi"')
-
+# dmenu if rofi decides to quit
+#chosen=$(printf "  Shutdown\n  Restart\n  Log Out\n💤 Sleep\n  Lock" | dmenu -fn 'JetBrainsMono Nerd Font')
+notify-send $chosen
 case "$chosen" in
 	"  Shutdown") poweroff ;;
 	"  Restart") reboot ;;

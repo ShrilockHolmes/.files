@@ -5,7 +5,6 @@ export HISTCONTROL=erasedups:ignoredups:ignorespace
 alias edit='nvim $(fzf)'
 export EDITOR=nvim
 alias vim='nvim'
-alias cat='bat'
 alias pacman-mirrors='sudo reflector --sort rate --verbose -l 30 --save /etc/pacman.d/mirrorlist'
 # To have colors for ls and all grep commands such as grep, egrep and zgrep
 export CLICOLOR=1
@@ -65,10 +64,10 @@ export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:"
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
+eval "$(starship init zsh)"
 # antigen zsh
 
 source ~/antigen.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen apply
-eval "$(starship init zsh)"

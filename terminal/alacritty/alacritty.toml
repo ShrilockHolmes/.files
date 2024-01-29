@@ -1,0 +1,10 @@
+import = [
+  "~/.config/alacritty/theme.toml"
+]
+[font]
+size=12
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+[window]
+opacity = 0.8
+
