@@ -1,4 +1,4 @@
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id lxqt-policykit-agent 
 
 exec feh -z --no-fehbg --bg-scale ~/Pictures/favwallpaper/
 

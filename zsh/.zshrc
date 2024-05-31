@@ -1,6 +1,5 @@
-
 export HISTCONTROL=erasedups:ignoredups:ignorespace
-
+export FZF_COMPLETION_TRIGGER='<Ctrl-t>'
 # Set the default editor
 alias edit='nvim $(fzf)'
 export EDITOR=nvim
@@ -62,11 +61,11 @@ extract () {
 }
 export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:"
 
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+#eval "$(zoxide init zsh)"
 
 eval "$(starship init zsh)"
+source <(fzf --zsh)
 # antigen zsh
-
 source ~/antigen.zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions

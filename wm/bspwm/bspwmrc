@@ -1,6 +1,5 @@
 #!/bin/sh
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
+lxqt-policykit-agent &
 ~/.local/bin/autostart.sh
 
 feh --no-fehbg -z --bg-scale ~/Pictures/favwallpaper/*

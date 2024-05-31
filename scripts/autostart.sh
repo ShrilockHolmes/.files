@@ -1,7 +1,7 @@
 #!/bin/bash
 # colormanages my display
 /usr/bin/xcalib -d :0 ~/Documents/X540NA_8086_AE0D15DB.icm
-
+brightnessctl s 4%
 # makes Scrolling speed like i like it
 xinput set-prop "ELAN1200:00 04F3:3067 Touchpad" 'libinput Scrolling Pixel Distance' '32'
 

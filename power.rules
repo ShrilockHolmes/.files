@@ -1,7 +1,7 @@
-ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="0", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/penguin/.Xauthority" RUN+="/bin/sh -c 'cpupower frequency-set --max 1.9G'"
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="0", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/penguin/.Xauthority" RUN+="/bin/sh -c 'cpupower frequency-set -u 1.8G && powerprofilesctl set power-saver'"
 
 
-ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="1", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/penguin/.Xauthority" RUN+="/bin/sh -c 'cpupower frequency-set --max 2.4G'"
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="1", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/penguin/.Xauthority" RUN+="/bin/sh -c 'cpupower frequency-set -u 2.4G && powerprofilesctl set balanced'"
 
 ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="0", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/penguin/.Xauthority" RUN+="/usr/bin/su penguin -c '/home/penguin/.local/bin/pluggedin.sh 0'"
 
