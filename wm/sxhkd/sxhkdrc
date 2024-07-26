@@ -59,7 +59,7 @@ XF86AudioPlay
   playerctl play-pause
 
 super + e 
-  ~/.local/bin/power.sh 1
+  thunar
 
 # window manaager only!!
 super + shift + space

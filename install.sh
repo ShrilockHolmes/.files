@@ -2,7 +2,7 @@
 #
 whereisthisfile=$(pwd)
 if pacman -V >> /dev/null; then
-    sudo pacman -S rofi ttf-roboto ttf-jetbrains-mono-nerd picom dunst rofi-calc rofi-emoji trash-cli z stow scrot alacritty cpupower ttf-font-awesome bspwm sxhkd polybar zsh networkmanager lxqt-policykit feh qt5ct neovim python-pynvim gedit kvantum ripgrep fd lxappearance xorg-xsetroot intel-media-driver vulkan-intel vulkan-validation-layers network-manager-applet 
+    sudo pacman -S rofi ttf-roboto ttf-jetbrains-mono-nerd picom dunst rofi-calc rofi-emoji trash-cli z stow scrot alacritty ttf-font-awesome bspwm sxhkd polybar zsh networkmanager lxqt-policykit feh qt6ct neovim python-pynvim gedit kvantum ripgrep fd lxappearance xorg-xsetroot intel-media-driver vulkan-intel vulkan-validation-layers network-manager-applet xarchiver thunar thunar-volman thunar-archive-plugin
   sudo systemctl enable ly
     if yay; then
      yay -S betterlockscreen 

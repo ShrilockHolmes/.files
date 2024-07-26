@@ -164,8 +164,8 @@ bindsym XF86AudioLowerVolume exec  ~/.local/bin/audio.sh down
 bindsym XF86AudioMute exec ~/.local/bin/audio.sh mute
 
 
-bindsym XF86BrightnessDown exec ~/.local/bin/brightness.sh down
-bindsym XF86BrightnessUp exec ~/.local/bin/brightness.sh up
+bindsym XF86MonBrightnessDown exec ~/.local/bin/brightness.sh down
+bindsym XF86MonBrightnessUp exec ~/.local/bin/brightness.sh up
 
 bindsym $mod+ctrl+c exec pkill greenclip && greenclip clear && greenclip daemon &
 
