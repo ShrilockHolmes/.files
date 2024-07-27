@@ -22,6 +22,7 @@ bspc rule -a Floorp desktop='^1' follow=on
 bspc rule -a Brave-browser desktop='^1' follow=on
 bspc rule -a zenity follow=on state=floating
 bspc rule -a Spotify desktop='^3' follow=on
+bspc rule -a Navigator desktop='^1' follow=on
 
 killall nm-applet
 nm-applet --indicator &

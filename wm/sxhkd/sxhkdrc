@@ -1,6 +1,8 @@
 super + x
   alacritty
 
+super + b
+  xdg-open https://
 super + d 
   rofi -show drun
 
