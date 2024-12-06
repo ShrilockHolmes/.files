@@ -1954,6 +1954,7 @@ void spawn(const Arg *arg) {
 void tag(const Arg *arg) {
   if (selmon->sel && arg->ui & TAGMASK) {
     selmon->sel->tags = arg->ui & TAGMASK;
+    view(arg);
     focus(NULL);
     arrange(selmon);
   }
