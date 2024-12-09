@@ -13,7 +13,7 @@ case "$chosen" in
 	"  Shutdown") poweroff ;;
 	"  Restart") reboot ;;
   "💤 Sleep") systemctl suspend-then-hibernate ;;
-	"  Log Out") i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit' | bspc quit;;
+	"  Log Out") i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit' | bspc quit | pkill dwm;;
 	"  Lock") betterlockscreen -l ;;
 	*) exit 1 ;;
 esac

@@ -232,7 +232,6 @@ static void configure(Client *c);
 static void configurenotify(XEvent *e);
 static void configurerequest(XEvent *e);
 static Monitor *createmon(void);
-static void deck(Monitor *m);
 static void destroynotify(XEvent *e);
 static void detach(Client *c);
 static void detachstack(Client *c);
@@ -260,7 +259,6 @@ static void maprequest(XEvent *e);
 static void monocle(Monitor *m);
 static void motionnotify(XEvent *e);
 static void movemouse(const Arg *arg);
-static void moveplace(const Arg *arg);
 //
 static Client *nexttagged(Client *c);
 static Client *nexttiled(Client *c);
@@ -326,7 +324,7 @@ static void updatesystrayicongeom(Client *i, int w, int h);
 static Client *wintosystrayicon(Window w);
 static void updatesystrayiconstate(Client *i, XPropertyEvent *ev);
 static void resizerequest(XEvent *e);
-
+static void moveorplace(const Arg *arg);
 /* variables */
 static Systray *systray = NULL;
 static const char broken[] = "broken";
@@ -1320,7 +1318,11 @@ void motionnotify(XEvent *e) {
   }
   mon = m;
 }
-
+void
+moveorplace(const Arg *arg) {
+	if ((!selmon->lt[selmon->sellt]->arrange || (selmon->sel && selmon->sel->isfloating)))
+		movemouse(arg);
+}
 void movemouse(const Arg *arg) {
   int x, y, ocx, ocy, nx, ny;
   Client *c;
@@ -1377,35 +1379,6 @@ void movemouse(const Arg *arg) {
   }
 }
  
-
-void moveplace(const Arg *arg) {
-  Client *c;
-  int nh, nw, nx, ny;
-  c = selmon->sel;
-  if (!c || (arg->ui >= 9))
-    return;
-  if (selmon->lt[selmon->sellt]->arrange && !c->isfloating)
-    togglefloating(NULL);
-  nh = (selmon->wh / 3) - (c->bw * 2);
-  nw = (selmon->ww / 3) - (c->bw * 2);
-  nx = (arg->ui % 3) - 1;
-  ny = (arg->ui / 3) - 1;
-  if (nx < 0)
-    nx = selmon->wx;
-  else if (nx > 0)
-    nx = selmon->wx + selmon->ww - nw - c->bw * 2;
-  else
-    nx = selmon->wx + selmon->ww / 2 - nw / 2 - c->bw;
-  if (ny < 0)
-    ny = selmon->wy;
-  else if (ny > 0)
-    ny = selmon->wy + selmon->wh - nh - c->bw * 2;
-  else
-    ny = selmon->wy + selmon->wh / 2 - nh / 2 - c->bw;
-  resize(c, nx, ny, nw, nh, True);
-  XWarpPointer(dpy, None, c->win, 0, 0, 0, 0, nw / 2, nh / 2);
-}
-
 Client *
 nexttagged(Client *c) {
   Client *walked = c->mon->clients;
@@ -2501,32 +2474,6 @@ int xerrorstart(Display *dpy, XErrorEvent *ee) {
   die("dwm: another window manager is already running");
   return -1;
 }
-void
-deck(Monitor *m) {
-	unsigned int i, n, h, mw, my;
-	Client *c;
-
-	for(n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++);
-	if(n == 0)
-		return;
-
-	if(n > m->nmaster) {
-		mw = m->nmaster ? m->ww * m->mfact : 0;
-		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n - m->nmaster);
-	}
-	else
-		mw = m->ww;
-	for(i = my = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
-		if(i < m->nmaster) {
-			h = (m->wh - my) / (MIN(n, m->nmaster) - i);
-			resize(c, m->wx, m->wy + my, mw - (2*c->bw), h - (2*c->bw), False);
-			my += HEIGHT(c);
-		}
-		else
-			resize(c, m->wx + mw, m->wy, m->ww - mw - (2*c->bw), m->wh - (2*c->bw), False);
-}
-
-
 
 void zoom(const Arg *arg) {
   Client *c = selmon->sel;

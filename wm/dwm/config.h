@@ -143,8 +143,9 @@ static Key keys[] = {
       {MODKEY, XK_q, killclient, {0}},
       //{ MODKEY,                       XK_t,                      setlayout,
       //{.v = &layouts[0]} }, { MODKEY,                       XK_v, setlayout,
-      //{.v = &layouts[1]} }, { MODKEY,                       XK_f,
-      //setfullscreen, {0}
+      //{.v = &layouts[1]} }, 
+  //
+      //{ MODKEY,                       XK_f, setfullscreen,}},
       //},
       {MODKEY | ShiftMask, XK_space, togglefloating, {0}},
       //{ MODKEY,                       XK_0,                      view, {.ui =
@@ -163,8 +164,8 @@ static Button buttons[] = {
     /* click                event mask      button          function argument */
     {ClkTagBar, MODKEY, Button1, tag, {0}},
     {ClkTagBar, MODKEY, Button3, toggletag, {0}},
-    //{ ClkClientWin,         MODKEY,         Button1,        moveorplace, {.i =
-    // 2} },
+    { ClkClientWin,         MODKEY,         Button1,        moveorplace, {.i =
+     2} },
     {ClkClientWin, MODKEY, Button3, resizemouse, {0}},
     {ClkTagBar, 0, Button1, view, {0}},
     {ClkTagBar, 0, Button3, toggleview, {0}},
