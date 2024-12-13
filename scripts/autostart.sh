@@ -32,4 +32,6 @@ gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 5
 gsettings set org.gnome.desktop.peripherals.keyboard delay 150
 
 picom &
+pkill polkit-gnome
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exit 
