@@ -41,7 +41,7 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     isfloating   monitor */
     {"Gimp", NULL, NULL, 0, 1, -1},
-    {"brave-browser", NULL, NULL, 1 << 8, 0, -1},
+    {"brave-browser", NULL, NULL, 1 , 0, -1},
 };
 
 /* layout(s) */
@@ -56,7 +56,7 @@ static const Layout layouts[] = {
     /* symbol     arrange function */
     {"[]=", tile}, /* first entry is default */
     {"><>", NULL}, /* no layout function means floating behavior */
-    {"[M]", monocle},
+  {"[M]", monocle},
 };
 
 /* key definitions */
@@ -112,7 +112,8 @@ static const Key keys[] = {
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
         TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5) TAGKEYS(XK_7, 6) TAGKEYS(XK_8, 7)
-            //TAGKEYS(XK_9, 8){MODKEY | ShiftMask, XK_q, quit, {0}},
+ //           /TAGKEYS(XK_9, 8)
+  //{MODKEY | ShiftMask, XK_q, quit, {0}},
 };
 
 /* button definitions */
