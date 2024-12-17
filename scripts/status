@@ -1,0 +1,30 @@
+#!/bin/bash
+
+update_time(){
+  time=$(date '+%I:%M | %d-%m-%Y')
+}
+update_bat() {
+  bat=$(~/.local/bin/bat.sh)
+}
+
+#update_vol() {
+#  vol="奄 $(pactl list sinks | awk '/Volume:/ {print $5}' | head -n 1 | tr -d '%')%"
+#}
+
+# Display function
+display() {
+  status=""
+  [[ -n "$bat" ]] && status+="$bat "
+  [[ -n "$time" ]] && status+="$time"
+  xsetroot -name "$status"
+}
+update_time
+update_bat
+display
+# Main loop
+while true; do
+  sleep 5
+  update_time
+  update_bat
+  display
+done

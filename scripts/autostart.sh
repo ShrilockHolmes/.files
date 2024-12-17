@@ -31,7 +31,11 @@ xset s 600
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 5
 gsettings set org.gnome.desktop.peripherals.keyboard delay 150
 
-picom &
+picom -b 
 pkill polkit-gnome
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+if [[ $(uname -v | grep Debian) ]]; then
+  /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+else
+  /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+fi
 exit 
