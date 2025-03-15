@@ -1,11 +1,16 @@
 /* See LICENSE file for copyright and license details. */
-
+#include "movestack.c"
 /* appearance */
-static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayonleft = 1;    /* 0: systray in the right corner, >0: systray on left of status text */
-static const unsigned int systrayspacing = 2;   /* systray spacing */
-static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray        = 1;        /* 0 means no systray */
+static const unsigned int systraypinning =
+    0; /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor
+          X */
+static const unsigned int systrayonleft =
+    1; /* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systrayspacing = 2; /* systray spacing */
+static const int systraypinningfailfirst =
+    1; /* 1: if pinning fails, display systray on the first monitor, False:
+          display systray on the last monitor*/
+static const int showsystray = 1;       /* 0 means no systray */
 static const unsigned int borderpx = 0; /* border pixel of windows */
 static const unsigned int snap = 20;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
@@ -18,13 +23,9 @@ static const char selbordercolor[] = "#434C5E";
 static const char selbgcolor[] = "#434C5E";
 static const char selfgcolor[] = "#ECEFF4";
 
-
-const char *startit[] = {
- "feh --no-fehbg --bg-scale ~/Pictures/favwallpaper/*", 
-  "~/.local/bin/autostart.sh",
-  "nm-applet --indicator &",
-  "~/.local/bin/status &"
-};
+const char *startit[] = {"feh --no-fehbg --bg-scale ~/Pictures/favwallpaper/*",
+                         "~/.local/bin/autostart.sh", "nm-applet --indicator &",
+                         "~/.local/bin/status &"};
 static const char *colors[][3] = {
     /*               fg           bg           border   */
     [SchemeNorm] = {normfgcolor, normbgcolor, normbordercolor},
@@ -41,7 +42,7 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     isfloating   monitor */
     {"Gimp", NULL, NULL, 0, 1, -1},
-    {"brave-browser", NULL, NULL, 1 , 0, -1},
+    {"brave-browser-beta", NULL, NULL, 1 << 4, 0, -1},
 };
 
 /* layout(s) */
@@ -56,7 +57,7 @@ static const Layout layouts[] = {
     /* symbol     arrange function */
     {"[]=", tile}, /* first entry is default */
     {"><>", NULL}, /* no layout function means floating behavior */
-  {"[M]", monocle},
+    {"[M]", monocle},
 };
 
 /* key definitions */
@@ -93,11 +94,18 @@ static const Key keys[] = {
     {0, XF86XK_AudioLowerVolume, spawn, SHCMD("~/.local/bin/audio.sh down")},
     {0, XF86XK_AudioMute, spawn, SHCMD("~/.local/bin/audio.sh mute")},
     {0, XF86XK_AudioRaiseVolume, spawn, SHCMD("~/.local/bin/audio.sh up")},
-
+  {0,XF86XK_AudioPrev,spawn, SHCMD("playerctl previous")},
+  {0,XF86XK_AudioNext ,spawn, SHCMD("playerctl next")},
+  {0,XF86XK_AudioPlay ,spawn, SHCMD("playerctl play-pause")},
+  //XF86XK_Calculator
+  //{ShiftMask|Print , spawn ,SHCMD("~/.local/bin/screenshot.sh 1")},
+  //{Print , spawn ,SHCMD("~/.local/bin/screenshot.sh 2")},
     {MODKEY, XK_f, togglebar, {0}},
     {MODKEY, XK_l, focusstack, {.i = +1}},
     {MODKEY, XK_h, focusstack, {.i = -1}},
     {MODKEY, XK_i, incnmaster, {.i = +1}},
+  { MODKEY|ShiftMask,             XK_h,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_l,      movestack,      {.i = -1 } },
     {alt | ShiftMask, XK_h, setmfact, {.f = -0.05}},
     {alt | ShiftMask, XK_l, setmfact, {.f = +0.05}},
     {MODKEY, XK_Return, zoom, {0}},
