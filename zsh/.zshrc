@@ -66,7 +66,19 @@ export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:"
 eval "$(starship init zsh)"
 source <(fzf --zsh)
 # antigen zsh
-source ~/antigen.zsh
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen apply
+if ls ~ | grep antigen >> /dev/null; then
+	source ~/antigen.zsh
+	antigen bundle zsh-users/zsh-syntax-highlighting
+	antigen bundle zsh-users/zsh-autosuggestions
+	antigen apply
+else
+	echo not there
+	curl -L git.io/antigen > ~/antigen.zsh
+	source ~/antigen.zsh
+	antigen bundle zsh-users/zsh-syntax-highlighting
+	antigen bundle zsh-users/zsh-autosuggestions
+	antigen apply
+	
+fi
+
+#if [ -e /home/penguin/.nix-profile/etc/profile.d/nix.sh ]; then . /home/penguin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
